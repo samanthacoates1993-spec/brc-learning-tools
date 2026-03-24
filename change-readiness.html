@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How Change-Ready Is Your Leadership Team? | BRC Learning</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #1a2b4a;
+    --purple: #5c3d8f;
+    --purple-light: #f0ebf8;
+    --purple-mid: #d4c4ee;
+    --yellow: #f5c842;
+    --green: #2a7f62;
+    --green-light: #e6f4ef;
+    --amber: #c97a1a;
+    --amber-light: #fdf2e0;
+    --red: #b03a2e;
+    --red-light: #fcecea;
+    --blue: #1d5fa8;
+    --blue-light: #e8f0fb;
+    --text: #1a2b4a;
+    --text-mid: #4a5568;
+    --text-muted: #718096;
+    --border: #e2e8f0;
+    --surface: #f8f9fc;
+    --white: #ffffff;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--surface);
+    color: var(--text);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  header {
+    background: var(--navy);
+    padding: 1.25rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark {
+    width: 36px;
+    height: 36px;
+    background: var(--yellow);
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+  }
+
+  .logo-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: white;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .logo-sub {
+    font-size: 11px;
+    color: rgba(255,255,255,0.5);
+    font-weight: 300;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 1px;
+  }
+
+  .hero {
+    background: var(--navy);
+    padding: 3rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: var(--surface);
+    clip-path: ellipse(55% 100% at 50% 100%);
+  }
+
+  .hero-eyebrow {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 4px 14px;
+    border-radius: 20px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 500;
+    color: white;
+    line-height: 1.25;
+    max-width: 600px;
+    margin: 0 auto 1rem;
+  }
+
+  .hero p {
+    font-size: 15px;
+    color: rgba(255,255,255,0.65);
+    max-width: 480px;
+    margin: 0 auto;
+    font-weight: 300;
+  }
+
+  .main {
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 4rem;
+  }
+
+  .progress-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+  }
+
+  .progress-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+  }
+
+  .progress-count {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .progress-track {
+    height: 3px;
+    background: var(--border);
+    border-radius: 2px;
+    margin-bottom: 2.5rem;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: var(--purple);
+    border-radius: 2px;
+    transition: width 0.5s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .dim-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .dim-pill.psych { background: var(--green-light); color: var(--green); }
+  .dim-pill.sense { background: var(--purple-light); color: var(--purple); }
+  .dim-pill.peer { background: var(--amber-light); color: var(--amber); }
+  .dim-pill.reflect { background: var(--blue-light); color: var(--blue); }
+
+  .dim-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+  }
+
+  .dim-pill.psych .dim-dot { background: var(--green); }
+  .dim-pill.sense .dim-dot { background: var(--purple); }
+  .dim-pill.peer .dim-dot { background: var(--amber); }
+  .dim-pill.reflect .dim-dot { background: var(--blue); }
+
+  .question-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    color: var(--text);
+    line-height: 1.45;
+    margin-bottom: 1.5rem;
+  }
+
+  .options {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .option {
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 16px;
+    cursor: pointer;
+    font-size: 14px;
+    color: var(--text-mid);
+    transition: all 0.15s ease;
+    background: var(--white);
+    text-align: left;
+    line-height: 1.45;
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .option:hover {
+    border-color: var(--purple-mid);
+    background: var(--purple-light);
+    color: var(--purple);
+  }
+
+  .option.selected {
+    border-color: var(--purple);
+    background: var(--purple-light);
+    color: var(--purple);
+  }
+
+  .option-indicator {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    flex-shrink: 0;
+    margin-top: 1px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.15s;
+  }
+
+  .option.selected .option-indicator::after {
+    content: '';
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--purple);
+  }
+
+  .nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1.5rem;
+  }
+
+  .btn {
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  .btn-ghost:hover { border-color: var(--text-muted); color: var(--text); }
+  .btn-ghost:disabled { opacity: 0.3; cursor: not-allowed; }
+
+  .btn-primary {
+    background: var(--purple);
+    border: 1px solid var(--purple);
+    color: white;
+  }
+
+  .btn-primary:hover { background: #4a2f78; }
+  .btn-primary:disabled { opacity: 0.35; cursor: not-allowed; }
+
+  .result-view { display: none; }
+
+  .score-hero {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .score-hero::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.03);
+  }
+
+  .score-num {
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 600;
+    color: white;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .score-band {
+    display: inline-block;
+    padding: 5px 16px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .score-sub {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 300;
+  }
+
+  .dim-breakdown {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .dim-breakdown h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-muted);
+    margin-bottom: 1.25rem;
+  }
+
+  .dim-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 12px;
+  }
+
+  .dim-row:last-child { margin-bottom: 0; }
+
+  .dim-name {
+    font-size: 13px;
+    color: var(--text-mid);
+    width: 155px;
+    flex-shrink: 0;
+  }
+
+  .dim-track {
+    flex: 1;
+    height: 5px;
+    background: var(--border);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .dim-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  }
+
+  .dim-pct {
+    font-size: 12px;
+    color: var(--text-muted);
+    width: 34px;
+    text-align: right;
+  }
+
+  .rec-card {
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.25rem;
+    border-left: 3px solid;
+  }
+
+  .rec-card h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+  }
+
+  .rec-card p {
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .rec-card.ready { background: var(--green-light); border-color: var(--green); }
+  .rec-card.ready h3 { color: var(--green); }
+  .rec-card.ready p { color: #2d6b52; }
+
+  .rec-card.developing { background: var(--blue-light); border-color: var(--blue); }
+  .rec-card.developing h3 { color: var(--blue); }
+  .rec-card.developing p { color: #1a4f8a; }
+
+  .rec-card.pressure { background: var(--amber-light); border-color: var(--amber); }
+  .rec-card.pressure h3 { color: var(--amber); }
+  .rec-card.pressure p { color: #9a5c10; }
+
+  .rec-card.risk { background: var(--red-light); border-color: var(--red); }
+  .rec-card.risk h3 { color: var(--red); }
+  .rec-card.risk p { color: #8c2e24; }
+
+  .cta-card {
+    background: var(--navy);
+    border-radius: 12px;
+    padding: 1.75rem;
+    text-align: center;
+    margin-bottom: 1.25rem;
+  }
+
+  .cta-card p {
+    font-size: 14px;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    font-weight: 300;
+  }
+
+  .cta-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.2rem;
+    color: white;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  .btn-cta {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--navy);
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: opacity 0.15s;
+    margin: 4px;
+  }
+
+  .btn-cta:hover { opacity: 0.9; }
+
+  .btn-cta-ghost {
+    display: inline-block;
+    background: transparent;
+    color: rgba(255,255,255,0.7);
+    padding: 11px 24px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 400;
+    text-decoration: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    cursor: pointer;
+    font-family: 'DM Sans', sans-serif;
+    transition: all 0.15s;
+    margin: 4px;
+  }
+
+  .btn-cta-ghost:hover { border-color: rgba(255,255,255,0.5); color: white; }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--text-muted);
+    border-top: 1px solid var(--border);
+  }
+
+  footer a { color: var(--purple); text-decoration: none; }
+
+  @media (max-width: 500px) {
+    .main { padding: 2rem 1rem 3rem; }
+    .card { padding: 1.5rem; }
+    .hero { padding: 2rem 1.25rem 3rem; }
+    .dim-name { width: 120px; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo-area">
+    <div class="logo-mark">BRC</div>
+    <div>
+      <div class="logo-text">BRC Learning</div>
+      <div class="logo-sub">British Retail Consortium</div>
+    </div>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-eyebrow">Free assessment</div>
+  <h1>How change-ready is your leadership team?</h1>
+  <p>A 5-minute assessment for HR and L&D professionals. Understand where your leaders are — and what they actually need.</p>
+</div>
+
+<div class="main">
+
+  <div id="quiz-view">
+    <div class="progress-header">
+      <span class="progress-label">Your progress</span>
+      <span class="progress-count" id="counter">Question 1 of 12</span>
+    </div>
+    <div class="progress-track">
+      <div class="progress-fill" id="progress" style="width: 0%"></div>
+    </div>
+
+    <div class="card">
+      <div class="dim-pill" id="dim-pill"><span class="dim-dot"></span><span id="dim-label"></span></div>
+      <div class="question-text" id="q-text"></div>
+      <div class="options" id="options"></div>
+    </div>
+
+    <div class="nav">
+      <button class="btn btn-ghost" id="prev-btn" onclick="prev()" disabled>Back</button>
+      <button class="btn btn-primary" id="next-btn" onclick="next()" disabled>Next question</button>
+    </div>
+  </div>
+
+  <div class="result-view" id="result-view"></div>
+
+</div>
+
+<footer>
+  &copy; BRC Learning &nbsp;·&nbsp; <a href="https://www.brc.org.uk/learning">brc.org.uk/learning</a> &nbsp;·&nbsp; Part of the British Retail Consortium
+</footer>
+
+<script>
+const questions = [
+  { dim: "Psychological safety", cls: "psych", q: "When significant changes are announced, how do people in your team typically respond?", opts: ["Openly raise concerns and ask questions","Discuss concerns with trusted colleagues but not with leadership","Stay quiet and wait to see what happens","Express resistance or frustration openly"] },
+  { dim: "Psychological safety", cls: "psych", q: "How comfortable are your line managers acknowledging to their teams that they don't have all the answers?", opts: ["Very comfortable — they do this regularly","Fairly comfortable, though it depends on the situation","Uncomfortable — they tend to project confidence even when uncertain","They avoid uncertainty conversations altogether"] },
+  { dim: "Psychological safety", cls: "psych", q: "When a change initiative doesn't go to plan, how does your organisation typically respond?", opts: ["Reviews it honestly and learns from it","Acknowledges it briefly but moves on quickly","Finds someone to blame","Doesn't acknowledge it openly at all"] },
+  { dim: "Sense-making habits", cls: "sense", q: "When a major change is communicated, how much time do your leaders have to process it before being expected to cascade it?", opts: ["Enough time to reflect and form their own view","A brief window, but it often feels rushed","Very little — they're expected to cascade almost immediately","No time at all — they find out the same time as their teams"] },
+  { dim: "Sense-making habits", cls: "sense", q: "How would you describe your line managers' relationship with ambiguity?", opts: ["They're generally comfortable holding uncertainty while working through it","They manage ambiguity but find it draining","They tend to jump to conclusions quickly to reduce discomfort","They struggle significantly when situations are unclear"] },
+  { dim: "Sense-making habits", cls: "sense", q: "How often do your leaders actively pause to reflect before making decisions in a fast-moving situation?", opts: ["Regularly — it's part of how they work","Occasionally, when circumstances allow","Rarely — the pace doesn't allow for it","Almost never — action is the default response"] },
+  { dim: "Peer support", cls: "peer", q: "Do your line managers have regular structured opportunities to discuss shared challenges with peers?", opts: ["Yes — through formal peer learning or action learning sets","Informally — they connect with peers but there's no structure","Occasionally — ad hoc conversations when they find time","Not really — they operate quite independently"] },
+  { dim: "Peer support", cls: "peer", q: "When a leader is struggling with a particular change, what typically happens?", opts: ["They seek peer support and work through it collaboratively","They might talk to their line manager if the relationship is strong","They tend to manage it alone","It often goes unnoticed until performance is impacted"] },
+  { dim: "Peer support", cls: "peer", q: "How would you describe the quality of relationships between your line managers across different parts of the business?", opts: ["Strong — they actively support and learn from each other","Decent — there are good relationships but they're siloed by function","Thin — people are polite but don't really know each other's challenges","Poor — there's limited cross-functional connection"] },
+  { dim: "Capacity to reflect", cls: "reflect", q: "How much protected time do your leaders realistically have for their own development and reflection?", opts: ["A meaningful amount — development is genuinely prioritised","Some, but it's frequently deprioritised under operational pressure","Very little — L&D time is consistently sacrificed for BAU","Almost none — the expectation is continuous delivery"] },
+  { dim: "Capacity to reflect", cls: "reflect", q: "When change is at its most intense, how do your leaders tend to cope?", opts: ["They draw on clear strategies: delegation, boundaries, reflection","They manage but run on adrenaline and tend to burn out later","They go into survival mode — heads down, no strategy","They show visible signs of overwhelm that impact their teams"] },
+  { dim: "Capacity to reflect", cls: "reflect", q: "How would you describe your organisation's general attitude to leadership development right now?", opts: ["It's seen as critical — especially given the pace of change","It's valued in principle but competes with short-term priorities","It's seen as a nice-to-have when budgets allow","It's largely deprioritised — people are too stretched to engage"] }
+];
+
+const dimColors = { psych: "#2a7f62", sense: "#5c3d8f", peer: "#c97a1a", reflect: "#1d5fa8" };
+const answers = new Array(12).fill(null);
+let current = 0;
+
+function render() {
+  const q = questions[current];
+  const pill = document.getElementById('dim-pill');
+  pill.className = 'dim-pill ' + q.cls;
+  document.getElementById('dim-label').textContent = q.dim;
+  document.getElementById('q-text').textContent = q.q;
+  document.getElementById('counter').textContent = 'Question ' + (current + 1) + ' of 12';
+  document.getElementById('progress').style.width = ((current / 12) * 100) + '%';
+  document.getElementById('prev-btn').disabled = current === 0;
+
+  const opts = document.getElementById('options');
+  opts.innerHTML = '';
+  q.opts.forEach((o, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option' + (answers[current] === i ? ' selected' : '');
+    btn.innerHTML = '<div class="option-indicator"></div><span>' + o + '</span>';
+    btn.onclick = () => select(i);
+    opts.appendChild(btn);
+  });
+
+  const nb = document.getElementById('next-btn');
+  nb.disabled = answers[current] === null;
+  nb.textContent = current === 11 ? 'See my results' : 'Next question';
+}
+
+function select(i) {
+  answers[current] = i;
+  document.querySelectorAll('.option').forEach((el, idx) => el.classList.toggle('selected', idx === i));
+  document.getElementById('next-btn').disabled = false;
+}
+
+function next() {
+  if (current === 11) { showResults(); return; }
+  current++;
+  render();
+}
+
+function prev() {
+  if (current > 0) { current--; render(); }
+}
+
+function showResults() {
+  const dims = ["Psychological safety","Sense-making habits","Peer support","Capacity to reflect"];
+  const clss = ["psych","sense","peer","reflect"];
+  const dimScores = [0,0,0,0];
+  questions.forEach((q, i) => {
+    const di = dims.indexOf(q.dim);
+    if (answers[i] !== null) dimScores[di] += [3,2,1,0][answers[i]];
+  });
+
+  const total = dimScores.reduce((a,b)=>a+b,0);
+  const pct = Math.round((total / 36) * 100);
+
+  let band, bandStyle, recClass, recTitle, rec;
+  if (pct >= 75) {
+    band = "Change-ready"; bandStyle = "background:#e6f4ef; color:#2a7f62;";
+    recClass = "ready"; recTitle = "Build on your foundations";
+    rec = "Your leadership team has strong foundations for navigating change. The priority now is sustaining this — building in regular peer reflection and ensuring leaders don't sacrifice their own development under pressure. Consider how you stretch capable leaders further: peer mentoring, stretch assignments, or a structured programme that builds conscious leadership alongside technical capability.";
+  } else if (pct >= 50) {
+    band = "Developing"; bandStyle = "background:#e8f0fb; color:#1d5fa8;";
+    recClass = "developing"; recTitle = "Structured support will accelerate progress";
+    rec = "There are clear strengths here, but also identifiable gaps. Your leaders are coping with change, but likely running on effort rather than strategy. The most impactful intervention is structured peer learning — creating space for leaders to normalise uncertainty together rather than carrying it alone. A blended programme that combines reflection time, peer cohort, and practical tools would accelerate progress significantly.";
+  } else if (pct >= 25) {
+    band = "Under pressure"; bandStyle = "background:#fdf2e0; color:#c97a1a;";
+    recClass = "pressure"; recTitle = "Reactive leadership is a risk";
+    rec = "Your leaders are managing change reactively, and the conditions for sense-making are thin. The risk is that sustained pressure without reflection leads to burnout and poor decision-making. Addressing this requires both structural change (protected development time, peer connection) and individual capability building. A programme that gives leaders the language, tools, and peer perspective to navigate uncertainty is a practical starting point.";
+  } else {
+    band = "At risk"; bandStyle = "background:#fcecea; color:#b03a2e;";
+    recClass = "risk"; recTitle = "Immediate action is warranted";
+    rec = "The picture here suggests your leaders are in survival mode. Change is landing without the conditions needed to process it well — no reflection time, no peer support, no sense-making space. This is a retention and performance risk. Immediate priorities: create psychological safety for leaders to acknowledge struggle, introduce peer connection, and invest in capability that addresses the whole person — not just skills.";
+  }
+
+  let dimBarsHTML = '';
+  dims.forEach((d, i) => {
+    const dp = Math.round((dimScores[i] / 9) * 100);
+    dimBarsHTML += `<div class="dim-row">
+      <div class="dim-name">${d}</div>
+      <div class="dim-track"><div class="dim-bar" id="db${i}" style="width:0%; background:${dimColors[clss[i]]}"></div></div>
+      <div class="dim-pct">${dp}%</div>
+    </div>`;
+  });
+
+  document.getElementById('quiz-view').style.display = 'none';
+  const rv = document.getElementById('result-view');
+  rv.style.display = 'block';
+  rv.innerHTML = `
+    <div class="score-hero">
+      <div class="score-num">${pct}%</div>
+      <div class="score-band" style="${bandStyle}">${band}</div>
+      <div class="score-sub">Overall change readiness score</div>
+    </div>
+
+    <div class="dim-breakdown">
+      <h3>Score by dimension</h3>
+      ${dimBarsHTML}
+    </div>
+
+    <div class="rec-card ${recClass}">
+      <h3>${recTitle}</h3>
+      <p>${rec}</p>
+    </div>
+
+    <div class="cta-card">
+      <h3>Give your leaders the space to navigate change</h3>
+      <p>BRC Leaders' Summer School is built around exactly this — giving mid-level retail leaders the reflective space, peer cohort, and practical tools to lead through change rather than just cope with it.</p>
+      <a href="https://www.brc.org.uk/learning" class="btn-cta">Find out about Summer School</a>
+      <button class="btn-cta-ghost" onclick="restart()">Start again</button>
+    </div>
+  `;
+
+  setTimeout(() => {
+    dims.forEach((d, i) => {
+      const dp = Math.round((dimScores[i] / 9) * 100);
+      const el = document.getElementById('db' + i);
+      if (el) el.style.width = dp + '%';
+    });
+  }, 100);
+}
+
+function restart() {
+  answers.fill(null);
+  current = 0;
+  document.getElementById('result-view').style.display = 'none';
+  document.getElementById('quiz-view').style.display = 'block';
+  render();
+}
+
+render();
+</script>
+</body>
+</html>
